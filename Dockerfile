@@ -17,7 +17,7 @@ RUN apt-get install -y nodejs
 
 
 # remove several traces of debian python
-RUN apt-get instal -y python 
+RUN apt-get install -y python 
 RUN set -ex \
         && buildDeps=' \
                 curl \
