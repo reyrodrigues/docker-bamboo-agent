@@ -1,4 +1,7 @@
 FROM java:8
+FROM node:4-onbuild
+FROM django:onbuild
+
 MAINTAINER Audrey Roy Greenfeld (@audreyr)
 
 # Config vars
