@@ -83,7 +83,7 @@ RUN set -x \
 USER daemon:daemon
 ENV HOME /home/daemon
 
-RUN mkdir /home && mkdir /home/daemon
+RUN mkdir -p /home/daemon
 
 # Expose web and agent ports (what ports does agent need?)
 EXPOSE 8085
