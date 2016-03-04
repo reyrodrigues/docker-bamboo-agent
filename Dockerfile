@@ -82,8 +82,7 @@ RUN set -x \
 # here we only ever run one process anyway.
 ENV HOME /home/daemon
 RUN mkdir -p /home/daemon
-RUN useradd -d /home/daemon -m -s /bin/bash daemon
-
+RUN chown -R daemon:daemon /home/daemon
 USER daemon
 
 # Expose web and agent ports (what ports does agent need?)
