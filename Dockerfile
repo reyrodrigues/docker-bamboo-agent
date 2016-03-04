@@ -80,10 +80,7 @@ RUN set -x \
 # Use the default unprivileged account. This could be considered bad practice
 # on systems where multiple processes end up being executed by 'daemon' but
 # here we only ever run one process anyway.
-ENV HOME /home/daemon
-RUN mkdir -p /home/daemon
-RUN chown -R daemon:daemon /home/daemon
-USER daemon
+USER root
 
 # Expose web and agent ports (what ports does agent need?)
 EXPOSE 8085
