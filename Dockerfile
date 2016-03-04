@@ -31,7 +31,7 @@ RUN set -ex \
                 make \
                 xz-utils \
                 zlib1g-dev \
-                libpython-dev
+                libpython-dev \
         ' \
         && apt-get update && apt-get install -y $buildDeps
 
