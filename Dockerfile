@@ -13,7 +13,7 @@ ENV BAMBOO_AGENT $BAMBOO_AGENT_HOME/bin/bamboo-agent.sh
 RUN apt-get install curl wget
 
 RUN curl -sL https://deb.nodesource.com/setup_5.x | bash -
-RUN apt-get install -y nodejs
+RUN apt-get update && apt-get install -y nodejs
 
 
 # remove several traces of debian python
@@ -33,15 +33,16 @@ RUN set -ex \
                 zlib1g-dev \
                 libpython-dev \
         ' \
-        && apt-get update && apt-get install -y $buildDeps
+        && apt-get install -y $buildDeps
 
-RUN apt-get update && apt-get install -y  \
+RUN apt-get install -y  \
 		ca-certificates \
 		libsqlite3-0 \
 		libssl1.0.0 \
 	&& rm -rf /var/lib/apt/lists/*
 
-RUN apt-get install -y python-setuptools
+
+RUN curl https://bootstrap.pypa.io/ez_setup.py -o - | python
 RUN easy_install pip
 
 
