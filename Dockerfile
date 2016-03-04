@@ -12,7 +12,7 @@ ENV BAMBOO_AGENT $BAMBOO_AGENT_HOME/bin/bamboo-agent.sh
 
 RUN apt-get install curl wget
 
-RUN curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+RUN curl -sL https://deb.nodesource.com/setup_5.x | bash -
 RUN apt-get install -y nodejs
 
 
