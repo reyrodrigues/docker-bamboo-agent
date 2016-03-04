@@ -57,7 +57,7 @@ RUN apt-get update && apt-get install -y \
 ENV DJANGO_VERSION 1.9.3
 
 RUN pip install mysqlclient psycopg2 django=="$DJANGO_VERSION"
-
+RUN apt-get install -y libxml2 libmemcached libsasl2
 
 # Copy the scripts
 COPY ./run.sh /tmp/run.sh
