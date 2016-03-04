@@ -83,7 +83,6 @@ RUN set -x \
 ENV HOME /home/daemon
 
 RUN mkdir -p /home/daemon
-RUN chown -r daemon:daemon /home/daemon
 
 USER daemon:daemon
 
