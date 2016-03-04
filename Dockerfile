@@ -35,17 +35,13 @@ RUN set -ex \
         ' \
         && apt-get update && apt-get install -y $buildDeps
 
-# http://bugs.python.org/issue19846
-# > At the moment, setting "LANG=C" on a Linux system *fundamentally breaks Python 3*, and that's not OK.
-ENV LANG C.UTF-8
-
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get update && apt-get install -y  \
 		ca-certificates \
 		libsqlite3-0 \
 		libssl1.0.0 \
 	&& rm -rf /var/lib/apt/lists/*
 
-RUN apt-get install python-setuptools
+RUN apt-get install -y python-setuptools
 RUN easy_install pip
 
 
@@ -60,9 +56,6 @@ RUN apt-get update && apt-get install -y \
 ENV DJANGO_VERSION 1.9.3
 
 RUN pip install mysqlclient psycopg2 django=="$DJANGO_VERSION"
-
-
-
 
 
 # Copy the scripts
