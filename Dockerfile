@@ -3,6 +3,7 @@ FROM ubuntu:trusty
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y unzip
+RUN apt-get install -y libxml2 libmemcached-dev
 RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
 
 RUN apt-get install -y software-properties-common python-software-properties
@@ -65,7 +66,6 @@ RUN apt-get update && apt-get install -y \
 ENV DJANGO_VERSION 1.9.3
 
 RUN pip install mysqlclient psycopg2 django=="$DJANGO_VERSION"
-RUN apt-get install -y libxml2 libmemcached 
 
 # Copy the scripts
 COPY ./run.sh /tmp/run.sh
