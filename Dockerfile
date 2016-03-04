@@ -81,6 +81,9 @@ RUN set -x \
 # on systems where multiple processes end up being executed by 'daemon' but
 # here we only ever run one process anyway.
 USER daemon:daemon
+ENV HOME /home/daemon
+
+RUN mkdir /home && mkdir /home/daemon
 
 # Expose web and agent ports (what ports does agent need?)
 EXPOSE 8085
