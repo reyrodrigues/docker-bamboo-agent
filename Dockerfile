@@ -45,7 +45,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 		libssl1.0.0 \
 	&& rm -rf /var/lib/apt/lists/*
 
-RUN apt-get install python-pip
+RUN apt-get install python-setuptools
+RUN easy_install pip
 
 
 RUN apt-get update && apt-get install -y \
