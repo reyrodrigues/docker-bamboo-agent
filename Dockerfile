@@ -1,19 +1,6 @@
 FROM ubuntu:trusty
 
-#
-# NOTE: THIS DOCKERFILE IS GENERATED VIA "update.sh"
-#
-# PLEASE DO NOT EDIT IT DIRECTLY.
-#
-
-# A few problems with compiling Java from source:
-#  1. Oracle.  Licensing prevents us from redistributing the official JDK.
-#  2. Compiling OpenJDK also requires the JDK to be installed, and it gets
-#       really hairy.
-
-RUN apt-get update && apt-get install -y unzip && rm -rf /var/lib/apt/lists/*
-
-RUN echo 'deb http://httpredir.debian.org/debian jessie-backports main' > /etc/apt/sources.list.d/jessie-backports.list
+RUN apt-get update && apt-get install -y unzip
 
 # Default to UTF-8 file.encoding
 ENV LANG C.UTF-8
@@ -66,7 +53,7 @@ RUN apt-get update && apt-get install -y nodejs
 
 
 # remove several traces of debian python
-RUN apt-get install -y python 
+RUN apt-get install -y python
 RUN set -ex \
         && buildDeps=' \
                 curl \
