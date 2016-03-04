@@ -81,10 +81,10 @@ RUN set -x \
 # on systems where multiple processes end up being executed by 'daemon' but
 # here we only ever run one process anyway.
 ENV HOME /home/daemon
-
 RUN mkdir -p /home/daemon
+RUN useradd -d /home/daemon -m -s /bin/bash daemon
 
-USER daemon:daemon
+USER daemon
 
 # Expose web and agent ports (what ports does agent need?)
 EXPOSE 8085
