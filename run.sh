@@ -11,7 +11,7 @@ if [ -f $BAMBOO_INSTALLER ]; then
 	echo "-> Installer already found at $BAMBOO_INSTALLER. Skipping download."
 else
   # Download the agent from $DOWNLOAD_URL
-  DOWNLOAD_URL=http://$BAMBOO_SERVER:8085/agentServer/agentInstaller/$BAMBOO_AGENT_JAR
+  DOWNLOAD_URL=https://refugeeinfo.atlassian.net/builds/agentServer/agentInstaller/atlassian-bamboo-agent-installer-5.10-OD-13-001.jar
   curl -SL $DOWNLOAD_URL -o $BAMBOO_AGENT_INSTALL/$BAMBOO_AGENT_JAR
 fi
 
@@ -22,7 +22,7 @@ BAMBOO_AGENT=$BAMBOO_AGENT_HOME/bin/bamboo-agent.sh
 if [ ! -f $BAMBOO_AGENT ]; then
   # Run the agent installer
   echo "-> Running Bamboo Installer ..."
-  java -jar $BAMBOO_AGENT_INSTALL/$BAMBOO_AGENT_JAR http://$BAMBOO_SERVER:8085/agentServer/
+  java -jar $BAMBOO_AGENT_INSTALL/$BAMBOO_AGENT_JAR $BAMBOO_SERVER -t 5474a61fc2bf4ee2a753438df6b4621fd09b554f
 fi
 
 # Fix permissions
