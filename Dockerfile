@@ -10,7 +10,7 @@ ENV BAMBOO_AGENT_JAR atlassian-bamboo-agent-installer-$BAMBOO_VERSION.jar
 ENV BAMBOO_AGENT $BAMBOO_AGENT_HOME/bin/bamboo-agent.sh
 
 
-
+RUN apt-get install curl wget
 
 # remove several traces of debian python
 RUN apt-get purge -y python.*
