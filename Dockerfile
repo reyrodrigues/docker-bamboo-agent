@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install -y unzip
 
 RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
 
-RUN add-apt-repository ppa:webupd8team/java
+RUN DEBIAN_FRONTEND=noninteractive add-apt-repository ppa:webupd8team/java
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install oracle-java8-installer
 
